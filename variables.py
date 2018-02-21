@@ -24,6 +24,10 @@ diccionario_repeticiones = folder_tweets_limpios+'diccionario.csv'
 
 train_file = folder_data+'train_file.csv'
 
+forestclassifier = 'forestclassifier.pkl'
+vectorizer = 'vectorizer.pkl'
+
+
 dicc_words = [
 ['ratael', 0.5],
 ['mashirafael',-0.5],
