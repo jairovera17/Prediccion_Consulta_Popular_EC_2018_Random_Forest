@@ -3,15 +3,18 @@ folder_data = './data/'
 
 url_tweets_quito = 'http://localhost:5984/consulta_2018_final/_design/vistasbi/_view/get_tweets_quito'
 tweets_limpios_quito = folder_tweets_limpios+'tweets_limpios_quito.txt'
-tweets_label_quito = folder_data+'tweets_label_quito'
+tweets_label_quito_train = folder_data+'tweets_label_quito_train.csv'
+tweets_label_quito_test = folder_data+'tweets_label_quito_test.csv'
 
 url_tweets_guayaquil = 'http://localhost:5984/consulta_2018_final/_design/vistasbi/_view/get_tweets_guayaquil'
 tweets_limpios_guayaquil = folder_tweets_limpios+'tweets_limpios_guayaquil.txt'
-tweets_label_quito = folder_data+'tweets_label_guayaquil'
+tweets_label_guayaquil_train = folder_data+'tweets_label_guayaquil_train.csv'
+tweets_label_guayaquil_test = folder_data+'tweets_label_guayaquil_test.csv'
 
 url_tweets_cuenca = 'http://localhost:5984/consulta_2018_final/_design/vistasbi/_view/get_tweets_cuenca'
 tweets_limpios_cuenca = folder_tweets_limpios+'tweets_limpios_cuenca.txt'
-tweets_label_quito = folder_data+'tweets_label_cuenca'
+tweets_label_cuenca_train = folder_data+'tweets_label_cuenca_train.csv'
+tweets_label_cuenca_test = folder_data+'tweets_label_cuenca_test.csv'
 
 
 tweets_limpios_totales = folder_tweets_limpios+'tweets_limpios_totales.txt'
