@@ -10,6 +10,7 @@ from string import punctuation
 from nltk.data import load  
 from nltk import word_tokenize 
 
+import variables
 
 spanish_stopwords = stopwords.words('spanish')
 stemmer = SnowballStemmer('spanish')
@@ -38,3 +39,43 @@ def tokenize(text):
         print(text)
         stems = ['']
     return stems
+
+
+def recuperar_pickle(path):
+    file = open(path,'rb')
+    return pickle.load(file)
+
+forest = recuperar_pickle(variables.forestclassifier)
+vectorizer = recuperar_pickle(variables.vectorizer)
+
+
+test_tweets_label = []
+test_tweets_text = []
+
+test_files =[
+    variables.tweets_label_quito_test,
+    variables.tweets_label_guayaquil_test,
+    variables.tweets_label_cuenca_test
+]
+
+for item in test_files:
+    file = open(item,'r')
+    line = file.read().split('\n')
+    for linea in line:
+        array = linea.split(',')
+        if len(array)==2:
+            test_tweets_label.append(int(array[0]))
+            test_tweets_text.append(array[1]) 
+
+test_data_features = vectorizer.transform(test_tweets_text)
+test_data_features = test_data_features.toarray()
+
+
+result = forest.predict(test_data_features)
+print(len(test_tweets_text))
+print(len(result))
+
+
+
+
+
