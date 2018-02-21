@@ -1,0 +1,20 @@
+	si	no
+si	71	7
+no	3	83
+
+
+Reales
+Si ==> 78
+No ==> 86
+Predicciones
+Si ==> 74
+No ==> 90
+
+Porcentajes
+Reales
+Si ==> 47.5609756097561
+No ==> 52.4390243902439
+
+Predicciones
+Si ==> 45.1219512195122
+No ==> 54.8780487804878

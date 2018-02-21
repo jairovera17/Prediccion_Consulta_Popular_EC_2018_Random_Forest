@@ -45,6 +45,74 @@ def recuperar_pickle(path):
     file = open(path,'rb')
     return pickle.load(file)
 
+    
+def porcentaje(maximo,obtenido):
+    return (obtenido*100)/maximo
+
+        
+
+def calcular_matriz_confusion(actual,prediccion):
+    if len(actual)!=len(prediccion):
+        print('error en dimensiones')
+        return
+    falso_positivo = 0
+    falso_negativo = 0
+    verdadero_negativo = 0
+    verdadero_positivo = 0
+    actual_si = 0
+    actual_no = 0
+    prediccion_si = 0
+    prediccion_no = 0
+
+    for i in range(len(actual)):
+        if actual[i] == 1:
+            if prediccion[i] == 1:
+                verdadero_positivo+=1
+        if actual[i] == 0:
+            if prediccion[i] == 0:
+                verdadero_negativo+=1
+        if actual[i] == 1:
+            if prediccion[i] == 0:
+                falso_negativo+=1
+        if actual[i] == 0:
+            if prediccion[i] == 1:
+                falso_positivo+=1
+
+        if actual[i]== 1:
+            actual_si+=1
+        if actual[i]== 0:
+            actual_no+=1
+        if prediccion[i]==1:
+            prediccion_si+=1
+        if prediccion[i]==0:
+            prediccion_no+=1
+    
+    file = open(variables.matriz_confusion,'w')
+    file.write('\tsi\tno\n')
+    file.write('si\t'+str(verdadero_positivo)+'\t'+str(falso_negativo)+'\n')
+    file.write('no\t'+str(falso_positivo)+'\t'+str(verdadero_negativo)+'\n')
+    file.write('\n\n')
+
+    file.write('Reales\n')
+    file.write('Si ==> '+str(actual_si)+'\n')
+    file.write('No ==> '+str(actual_no)+'\n')
+    file.write('Predicciones\n')
+    file.write('Si ==> '+str(prediccion_si)+'\n')
+    file.write('No ==> '+str(prediccion_no)+'\n')
+
+    file.write('\nPorcentajes\n')
+    file.write('Reales\n')
+    total = len(actual)
+    file.write('Si ==> '+str(porcentaje(total,actual_si))+'\n')
+    file.write('No ==> '+str(porcentaje(total,actual_no))+'\n\n')
+
+    file.write('Predicciones\n')
+    total = len(actual)
+    file.write('Si ==> '+str(porcentaje(total,prediccion_si))+'\n')
+    file.write('No ==> '+str(porcentaje(total,prediccion_no)))
+    file.close()
+
+
 forest = recuperar_pickle(variables.forestclassifier)
 vectorizer = recuperar_pickle(variables.vectorizer)
 
@@ -72,10 +140,5 @@ test_data_features = test_data_features.toarray()
 
 
 result = forest.predict(test_data_features)
-print(len(test_tweets_text))
-print(len(result))
 
-
-
-
-
+calcular_matriz_confusion(test_tweets_label,result)

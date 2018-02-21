@@ -16,11 +16,11 @@ tweets_limpios_cuenca = folder_tweets_limpios+'tweets_limpios_cuenca.txt'
 tweets_label_cuenca_train = folder_data+'tweets_label_cuenca_train.csv'
 tweets_label_cuenca_test = folder_data+'tweets_label_cuenca_test.csv'
 
-
 tweets_limpios_totales = folder_tweets_limpios+'tweets_limpios_totales.txt'
 
 diccionario_repeticiones = folder_tweets_limpios+'diccionario.csv'
 
+matriz_confusion = 'matriz.txt'
 
 train_file = folder_data+'train_file.csv'
 
