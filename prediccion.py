@@ -110,6 +110,10 @@ def calcular_matriz_confusion(actual,prediccion):
     total = len(actual)
     file.write('Si ==> '+str(porcentaje(total,prediccion_si))+'\n')
     file.write('No ==> '+str(porcentaje(total,prediccion_no)))
+
+    file.write('\nAccuracy\n')
+    total = len(actual)
+    file.write('% ==> '+str(porcentaje((verdadero_negativo+verdadero_positivo+falso_negativo+falso_positivo),(verdadero_negativo+verdadero_positivo)))+'\n')
     file.close()
 
 
@@ -122,7 +126,7 @@ test_tweets_text = []
 
 test_files =[
     variables.tweets_label_quito_test,
-    variables.tweets_label_guayaquil_test,
+  #  variables.tweets_label_guayaquil_test,
     variables.tweets_label_cuenca_test
 ]
 

@@ -30,7 +30,7 @@ vectorizer = 'vectorizer.pkl'
 
 dicc_words = [
 ['ratael', 0.5],
-['mashirafael',-0.5],
+['mashirafael',0.5],
 ['lenin',0.25],
 ['ciudadana',-0.25],
 ['ecuadorrc',-0.4],
@@ -46,7 +46,11 @@ dicc_words = [
 ['revolución',-0.4],
 ['traidor',-0.4],
 ['cuantico',-0.25],
-['pillo',-0.25]
+['pillo',-0.25],
+['consulta',0.1],
+['correa',-0.25],
+['gobierno',-0.5],
+['corrupción',-0.5]
 ]
 
 
